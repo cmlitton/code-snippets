@@ -1,0 +1,7 @@
+# bash - call using : logAction “Hello”
+
+
+function logAction {
+    logTime=$(date "+%Y-%m-%d - %H:%M:%S:")
+    echo "$logTime" "$1" >> /var/log/Provisioning.log
+}
