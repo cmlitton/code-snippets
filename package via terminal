@@ -1,0 +1,1 @@
+pkgbuild --install-location /Applications --component "/path/to/macOSInstallerApp" "/path/to/xxxxx.pkg"
