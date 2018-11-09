@@ -1,6 +1,5 @@
 # this is just code used to add a new computer group to the JSS Demo instance.
-# code can be used anywhere as long as credentials are correct
-
+# Modify URL, username and password below to access your JSS
 #!/bin/bash
 
 # variables
