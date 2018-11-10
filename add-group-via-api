@@ -4,8 +4,8 @@
 
 # variables
 
-jamfUser="api-write"
-jamfPass="admin"
+jamfUser=""
+jamfPass=""
 jamfURL="https://jssdemo.bfatech.com:8443/JSSResource"
 
 theXML="<computer_group>
