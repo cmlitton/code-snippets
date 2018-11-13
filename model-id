@@ -1,0 +1,4 @@
+	# Gets the Model Identifier, splits name and major version
+	MODELIDENTIFIER=$(/usr/sbin/sysctl -n hw.model)
+	MODELNAME=$(echo "$MODELIDENTIFIER" | sed 's/[^a-zA-Z]//g')
+	MODELVERSION=$(echo "$MODELIDENTIFIER" | sed 's/[^0-9,]//g' | awk -F, '{print $1}')
