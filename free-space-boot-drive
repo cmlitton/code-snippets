@@ -1,0 +1,3 @@
+
+	# Gets free space on the boot drive
+	FREESPACE=$(diskutil info / | awk -F'[()]' '/Free Space|Available Space/ {print $2}' | sed -e 's/\ Bytes//')
