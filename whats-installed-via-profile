@@ -1,0 +1,5 @@
+# yea, your only ways to verify whats installed/controlled via profiles is to look at the profiles pane in 
+# System Preferences or you could look at this file with the following command 
+#
+
+/usr/libexec/PlistBuddy -c "print" /Library/Application\ Support/com.apple.TCC/MDMOverrides.plist
