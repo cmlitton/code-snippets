@@ -1,0 +1,3 @@
+xml_del="<computer_group><computer_deletions><computer><name>myLaptop</name></computer></computer_deletions></computer_group>"
+
+curl "$jamfProURL/JSSResource/computergroups/name/MyStaticGroup" -u "$APIUser:$APIPass" -H "Content-Type: text/xml" -X PUT -d "$xml_del"
