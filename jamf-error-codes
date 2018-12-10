@@ -1,0 +1,60 @@
+richardpurvess-Mac:~ richardpurves$ jamf help policy
+
+Usage:	 jamf policy [-event <event>] [-username <username>] [-id <policy_id>] [-forceNoRecon]
+
+	-event		The event or trigger that the policy is associated with in the JSS. Historical synonyms include –trigger and –action.
+				Note: Running policy without an event will default to the scheduled event.
+				Other events include: login, logout, startup, networkStateChange, enrollmentComplete, along with custom events.
+
+	-username		The username to check for policies for.
+
+	-id			The ID of the policy to be executed. Used by Casper Remote and Self Service.
+
+	-forceNoRecon		Prevents computers from submitting inventory update when a policy is configured to update inventory.
+
+Return Codes: 
+	 0        The policy process finished with success.
+	 50       An unknown error occurred while running a policy.
+	 51       An error occurred because a policy is already being executed for this event.
+	 52       An error occurred while checking for policies.
+	 53       An error occurred while submitting the offline policy log to Jamf Pro.
+	 54       Policy execution needed to be restarted in the background because of the jamf binary update.
+	 55       An error occurred while submitting the Azure Active Directory ID information file.
+	 57       An error occurred while updating the jamf binary or Jamf apps.
+	 60       An error occurred while enforcing the management framework.
+	 300      An unknown error occurred while creating directory bindings.
+	 400      Disk encryption could not be executed because the jamf binary could not obtain a disk encryption ID from Jamf Pro.
+	 401      An error occurred while encrypting a disk.
+	 402      An error occurred while remediating a recovery key.
+	 440      An error occurred while mounting a distribution point.
+	 500      An unknown error occurred while modifying a dock item.
+	 501      An error occurred while modifying a dock item without contents.
+	 600      An error occurred while running an inventory update.
+	 700      An error occurred while manipulating a local account.
+	 750      An error occurred while resetting the managed account password.
+	 751      An error occurred while changing the managed account password.
+	 752      An error occurred while updating the managed account password in Jamf Pro.
+	 800      An error occurred because this computer does not meet the OS requirements for a package.
+	 801      An error occurred while installing a package.
+	 802      An error occurred while caching a package.
+	 803      An error occurred while installing a cached package.
+	 804      An error occurred while uninstalling a package.
+	 805      An error occurred while installing all of the cached packages.
+	 806      An error occurred while installing a patch package.
+	 900      An error occurred while installing or uninstalling a printer.
+	 911      An error occurred because the device URI was not provided.
+	 912      An error occurred because the printer name was not provided.
+	 913      An error occurred because the PPD file path is invalid.
+	 914      The printer cannot be installed because the computer does not meet the OS requirements for that printer.
+	 915      An error occurred while mapping a printer.
+	 921      An error occurred while uninstalling a printer.
+	 1001     An error occurred while setting an EFI password.
+	 1002     An error occurred while removing an EFI password.
+	 2100     An error occurred while saving an embedded script to the disk.
+	 2101     An error occurred while executing a script.
+	 2103     An error occurred because this computer does not meet the OS requirements for the script.
+	 2200     An error occurred while installing software updates.
+	 2201     An error occurred while installing software updates. There may be a proxy in place.
+	 2202     An error occurred while adding a software update server.
+	 2300     An error occurred while running Microsoft Device Registration.
+	 2301     An error occurred because Microsoft Device Registration can only register computers when they are connected to the network.
