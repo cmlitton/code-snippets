@@ -1,0 +1,5 @@
+#!/bin/bash
+
+IBRIDGE="$(/usr/sbin/system_profiler SPiBridgeDataType | /usr/bin/grep 'Model Name')"
+
+if [[ "${IBRIDGE}" == "" ]] ; 
