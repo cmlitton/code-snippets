@@ -1,0 +1,26 @@
+#!/bin/bash
+#
+# Author: Johan McGwire - Yohan @ Macadmins Slack - Johan@McGwire.tech
+#
+# Description: Reports to JAMF the user logged into NoMAD and assigns the machine to that user
+
+# Getting logged in user info
+user=$(/usr/bin/python -c 'from SystemConfiguration import SCDynamicStoreCopyConsoleUser; import sys; username = (SCDynamicStoreCopyConsoleUser(None, None, None) or [None])[0]; username = [username,""][username in [u"loginwindow", None, u""]]; sys.stdout.write(username + "\n");')
+echo "Running for $user"
+
+# Checking if user is signed into NoMAD
+if [ $(su $user -c 'defaults read com.trusourcelabs.NoMAD SignedIn')  == 1 ]; then
+
+    # Getting NoMAD and JAMF information
+    jamf=$(which jamf)
+    NoMADuser=$(su $user -c 'defaults read com.trusourcelabs.NoMAD UserShortName')
+    echo "Reporting username: $NoMADuser"
+
+    # Reporting user information
+    "$jamf" recon -endUsername "$NoMADuser"
+    echo "Reporting complete"
+else
+    echo "User not signed in"
+fi
+
+echo "Script complete"
