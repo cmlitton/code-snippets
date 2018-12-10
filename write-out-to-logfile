@@ -1,7 +1,13 @@
 # bash - call using : logAction “Hello”
 
-
+# option 1
 function logAction {
     logTime=$(date "+%Y-%m-%d - %H:%M:%S:")
     echo "$logTime" "$1" >> /var/log/Provisioning.log
 }
+
+
+# option 2
+LogPath=/tmp/log
+if [ ! -d "$LogPath" ] ; then mkdir /tmp/log ; fi
+LogFile=$LogPath/swu.log
