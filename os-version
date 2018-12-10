@@ -3,3 +3,14 @@ OSVERSIONMAJOR=$(sw_vers -productVersion | awk -F"." '{ print $2 }')
 OSVERSIONMINOR=$(sw_vers -productVersion | awk -F"." '{ print $3 }')
 
 
+# extra
+#!/bin/bash
+
+osvers=$(sw_vers -productVersion | awk -F. '{print $2}')
+
+if [[ ${osvers} -ge 14 ]]; then
+    echo "OS change detected. New OS version is 10.$osvers"
+    jamf recon
+else
+    echo "No OS change detected. OS version is 10.$osvers"
+fi
