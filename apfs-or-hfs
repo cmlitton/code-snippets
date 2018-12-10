@@ -1,0 +1,9 @@
+########## main process ##########
+cryptousers=$(diskutil apfs listusers / |awk '/\+--/ {print $NF}')
+
+# check if actually apfs disk or not
+if [[ -z "$cryptousers" ]]; then
+# is hfs
+else
+# is apfs
+fi
