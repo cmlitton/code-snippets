@@ -1,0 +1,6 @@
+#!/bin/sh
+
+SWU=`defaults read /Library/Preferences/com.apple.SoftwareUpdate CatalogURL`
+
+echo "<result>$SWU</result>"
+
