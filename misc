@@ -1,0 +1,10 @@
+Avoid putting restart commands in your scripts if you can. 
+You want your policy to complete and the Mac to report completion to Jamf Pro before the restart. 
+If you need to put a restart in your script, you can give it a slight delay and send it to a background process using something like:
+
+shutdown -r +1 &
+
+This restarts the computer in one minute. 
+The ampersand sends this to another process to allow the script to complete.
+
+You may event want to use jamfHelper's feature to display a full screen message to the user to prevent doing anything while Jamf Pro is installing the updates.
