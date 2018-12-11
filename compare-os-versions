@@ -1,0 +1,14 @@
+#!/bin/bash
+
+OS_MAJOR=$(/usr/bin/sw_vers -productVersion | awk -F . '{print $1}')
+OS_MINOR=$(/usr/bin/sw_vers -productVersion | awk -F . '{print $2}')
+
+if [[ "$OS_MAJOR" -eq 10 && "$OS_MINOR" -le 9 ]]; then
+    LOGINWINDOW_PID=$(pgrep -x -u "$USER_ID" loginwindow)
+    launchctl bsexec "$LOGINWINDOW_PID" open "macappstore://showUpdatesPage"
+elif [[ "$OS_MAJOR" -eq 10 && "$OS_MINOR" -gt 9 ]]; then
+    launchctl asuser "$USER_ID" open "macappstore://showUpdatesPage"
+else
+    echo "[ERROR] macOS $OS_MAJOR.$OS_MINOR is not supported."
+    exit 1004
+fi
