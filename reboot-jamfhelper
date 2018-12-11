@@ -1,0 +1,8 @@
+To get around that, you can run a script instead that does the jamf reboot command but puts it into the background, 
+meaning it won't wait for an OK button to be clicked before starting the countdown to reboot.
+
+jamf reboot \
+-minutes 10 \
+-message "Your Mac will reboot in 10 minutes to maintain smooth working order. Please close any open work now to avoid data loss of unsaved documents." \
+-background
+
