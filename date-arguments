@@ -1,0 +1,46 @@
+Here are the same format codes in alphabetical order:
+
+  %%   a literal %
+  %a   locale's abbreviated weekday name (Sun..Sat)
+  %A   locale's full weekday name, variable length (Sunday..Saturday)
+  %b   locale's abbreviated month name (Jan..Dec)
+  %B   locale's full month name, variable length (January..December)
+  %c   locale's date and time (Sat Nov 04 12:02:33 EST 1989)
+  %d   day of month (01..31)
+  %D   date (mm/dd/yy)
+  %e   day of month, blank padded ( 1..31)
+  %h   same as %b, locale's abbreviated month name (Jan..Dec)
+  %H   hour :24 hour(00..23)
+  %I   hour :12 hour(01..12)
+  %j   day of year (001..366)
+  %k   hour :24 hour(00..23)
+  %l   hour :12 hour(01..12)
+  %m   month (01..12)
+  %M   minute (00..59)
+  %n   a newline
+  %p   locale's AM or PM
+  %r   Time, 12-hour (hh:mm:ss [AP]M)
+  %s   Seconds since 1970-01-01 00:00:00,  (a GNU extension)
+       Note that this value is defined by the localtime system
+       call.  It isn't changed by the '--date' option.
+  %S   second (00..60)
+  %t   a horizontal tab
+  %T   Time, 24-hour (hh:mm:ss)
+  %U   Week number of year with Sunday as first day of week (00..53)
+  %V   Week number of year with Monday as first day of week (01..53)
+       If the week containing January 1 has four or
+       more days in the new year, then it is considered week 1;
+       otherwise, it is week 53 of the previous year, and the next week
+       is week 1. Similar to ISO 8601 (but not 100% compliant.)
+
+  %w   day of week (0..6);  0 represents Sunday
+  %W   week number of year with Monday as first day of week (00..53)
+  %x   locale's date representation (mm/dd/yy)
+  %X   locale's time representation (%H:%M:%S)
+  %y   last two digits of year (00..99)
+  %Y   year (1970...)
+  %z   RFC-822 style numeric timezone (-0500) (a nonstandard extension)
+       This value reflects the current time zone.
+       Is not changed  by the --date option.
+  %Z   Time offset from UTC (-07) This generally consists of Time Zone+DST
+       Is not changed by the --date option.
