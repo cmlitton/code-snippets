@@ -1,0 +1,17 @@
+# set the limit
+timeLimit=172800
+
+# Get current date
+epochDate=`date -j +%s`
+
+# read in the deferral date - if it's a text file:
+deferDate=`cat /my/tmp/file.txt`
+# an EA would require a curl, of course...
+
+# Do the math
+timeCheck=`echo "$deferDate-$epochDate" | bc`
+
+# test 
+if [ $timeCheck -lt $timeLimit ]; then
+    do stuff...
+fi
