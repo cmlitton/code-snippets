@@ -1,0 +1,4 @@
+# Display free space
+FreeSpace=$( /usr/sbin/diskutil info "Macintosh HD" | /usr/bin/grep  -E 'Free Space|Available Space' | /usr/bin/awk -F ":\s*" '{ print $2 }' | awk -F "(" '{ print $1 }' | xargs )
+FreePercentage=$( /usr/sbin/diskutil info "Macintosh HD" | /usr/bin/grep -E 'Free Space|Available Space' | /usr/bin/awk -F "(\\\(|\\\))" '{ print $6 }' )
+diskSpace="Disk Space: $FreeSpace free ($FreePercentage available)"
