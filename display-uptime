@@ -1,0 +1,7 @@
+# Display uptime
+runCommand=$( /usr/bin/uptime | /usr/bin/awk -F "(up |, [0-9] users)" '{ print $2 }' )
+if [[ "$runCommand" = *day* ]] || [[ "$runCommand" = *sec* ]] || [[ "$runCommand" = *min* ]] ; then
+    upTime="Uptime: $runCommand"
+else
+    upTime="Uptime: $runCommand hrs/min"
+fi
