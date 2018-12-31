@@ -1,0 +1,3 @@
+# Display network time server
+runCommand=$( /usr/sbin/systemsetup -getnetworktimeserver )
+timeServer="$runCommand"
