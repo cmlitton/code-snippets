@@ -1,0 +1,2 @@
+runCommand=$( /usr/sbin/scutil --get ComputerName )
+computerName="Computer Name: $runCommand"
