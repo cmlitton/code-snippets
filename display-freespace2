@@ -1,0 +1,23 @@
+#!/bin/bash
+
+
+#test of free disk space.
+
+DiskSpace=$(/bin/df -H / | awk '{getline; print $4}' | sed 's/[A-Z]//')
+#Extra check to see if space is in MB or TB
+DiskSpaceUnit=$(/bin/df -H / | awk '{getline; print $4}' | sed 's/[0-9]*//')
+
+if [ "$DiskSpaceUnit" =  "T" ]; then
+    DiskSpace=$((DiskSpace * 1000))
+    echo "Free space was in TB"
+
+elif [ "$DiskSpaceUnit" =  "M" ]; then
+    DiskSpace=$((DiskSpace / 1000))
+    echo "Free space was in MB"
+
+elif [ "$DiskSpaceUnit" =  "G" ]; then
+    echo "Free space was in GB"
+fi 
+
+
+
