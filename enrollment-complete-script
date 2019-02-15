@@ -1,0 +1,50 @@
+#!/bin/bash
+# For use with EnrollmentComplete trigger in JAMF
+
+# Let's make sure the dock is active, which indicates the user has logged in, if it is the first time setup
+dockStatus=$(pgrep -x Dock)
+echo "Waiting for Desktop"
+while [ "$dockStatus" == "" ]; do
+  echo "Desktop is not loaded. Waiting."
+  sleep 2
+  dockStatus=$(pgrep -x Dock)
+done
+
+# Set Time Server
+echo "Setting Time Server to example.com"
+jamf policy -id 15
+
+# Set Computer Name
+echo "Setting Computer Name to match Serial Number"
+jamf policy -id 23
+
+# Turn software updates on
+echo "Turning automatic software updates on"
+jamf policy -id 221
+
+# Enable FileVault for next login
+echo "Enabling FileVault for next login"
+jamf policy -id 2
+
+# Set Screen Saver
+echo "Setting Screen Saver to Company standard"
+jamf policy -id 56
+
+# Skype for Business
+echo "Installing Skype for Business"
+jamf policy -id 12
+
+# Privileges
+echo "Installing Priviledges app"
+jamf policy -id 145
+
+# Enterprise Connect
+echo "Installing Enterprise Connect"
+jamf policy -id 167
+
+# Update Inventory
+echo "Updating the inventory record in JAMF"
+jamf policy -id 1
+
+exit 0
+Col
