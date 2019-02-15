@@ -1,0 +1,10 @@
+#!/bin/bash
+
+/usr/bin/curl \
+--user "api-write":"jamf1234" \
+--header "Content-Type: text/xml" \
+--request PUT \
+--data "<scope><all_computers/></scope>"
+https://talkingmoose.jamfcloud.com:8443/JSSResource/managedpreferenceprofiles/id/IDNUMBER
+
+exit 0
