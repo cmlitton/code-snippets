@@ -1,1 +1,2 @@
 curl -sk https://yourorg.jamfcloud.com/healthCheck.html
+# if all is good it will return []
