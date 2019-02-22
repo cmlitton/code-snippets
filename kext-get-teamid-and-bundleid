@@ -1,0 +1,22 @@
+# bash
+
+sqlite3 /var/db/SystemPolicyConfiguration/KextPolicy "SELECT * from kext_policy;" ".exit"
+
+Sample return:
+
+Z2SG5H3HC8|net.tunnelblick.tap|1|Jonathan Bullard|8
+Z2SG5H3HC8|net.tunnelblick.tun|1|Jonathan Bullard|8
+XE2XNRRXZ5|jp.co.canon.bj.print.BJUSBLoad|1|Canon Inc.|8
+XE2XNRRXZ5|jp.co.canon.ij.print.CIJUSBLoad|1|Canon Inc.|8
+4C6364ACXT|com.parallels.kext.hypervisor|1|Parallels International GmbH|8
+4C6364ACXT|com.parallels.kext.netbridge|1|Parallels International GmbH|8
+4C6364ACXT|com.parallels.kext.usbconnect|1|Parallels International GmbH|8
+4C6364ACXT|com.parallels.kext.vnic|1|Parallels International GmbH|8
+MLZF7K7B5R|at.obdev.nke.LittleSnitch|1|Objective Development Software GmbH|1
+EG7KH642X6|com.vmware.kext.vmci|1|VMware, Inc.|5
+EG7KH642X6|com.vmware.kext.vmnet|1|VMware, Inc.|5
+EG7KH642X6|com.vmware.kext.vmx86|1|VMware, Inc.|5
+EG7KH642X6|com.vmware.kext.vmioplug.17.1.4|1|VMware, Inc.|5
+G7HH3F8CAK|com.getdropbox.dropbox.kext|1|Dropbox, Inc.|1
+DE8Y96K9QP|com.cisco.kext.acsock|1|Cisco|1
+EG7KH642X6|com.vmware.kext.vmioplug.17.1.5|1|VMware, Inc.|1
