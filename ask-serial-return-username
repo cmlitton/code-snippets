@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# ask user for serial number
+serialNumber=$(osascript -e 'text returned of(display dialog "Please type in your serial number" default answer "" buttons {"OK"} default button 1)')
+
+curl -su user:pass -H "accept: text/xml" https://JSSURL:8443/JSSResource/computers/serialnumber/$serialNumber -X GET | xmllint --xpath '/computer/location/username/text()' -
