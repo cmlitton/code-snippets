@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#for color in Orange Blue Yellow Green Purple; do
+#	echo "Color is $color"
+#	sleep 1
+#done
+
+for category in Apps Browsers Printers; do
+	curl -su jamfadmin:jamf1234 -H "content-type: text/xml" https://pro.jamf.training:8443/08/JSSResource/categories/id/0 -X POST -d "<category><name>$category</name><priority>2</priority></category>"
+	sleep 1
+
+done
