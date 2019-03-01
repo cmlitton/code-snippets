@@ -1,0 +1,5 @@
+#!/bin/bash
+
+#cat /Library/Application\ Support/JAMF/.blacklist.xml | xmllint --format - | grep Chess | awk '/process/{print$1}'
+
+cat /Library/Application\ Support/JAMF/.blacklist.xml | xmllint --format - 
