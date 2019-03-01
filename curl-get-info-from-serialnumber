@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#jamfProID="3000"
+
+#jamfUser="Michael Litton"
+
+#jamfSite="London"
+
+#echo " The user $jamfUser is located in $jamfSite with an ID of: $jamfProID"
+
+serial=$(system_profiler SPHardwareDataType | awk '/Serial/ {print$NF}')
+
+id=$(curl -su jamfadmin:jamf1234 -H "accept: text/xml" https://pro.jamf.training:8443/08/JSSResource/computers/serialnumber/$serial -X GET | xmllint --xpath '/computer/general/id/text()' -)
+
+user=$(curl -su jamfadmin:jamf1234 -H "accept: text/xml" https://pro.jamf.training:8443/08/JSSResource/computers/serialnumber/$serial -X GET | xmllint --xpath '/computer/location/username/text()' -)
+
+site=$(curl -su jamfadmin:jamf1234 -H "accept: text/xml" https://pro.jamf.training:8443/08/JSSResource/computers/serialnumber/$serial -X GET | xmllint --xpath '/computer/general/site/name/text()' -)
+
+echo $id $user $site
