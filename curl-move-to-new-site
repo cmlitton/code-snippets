@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# move computer to new site
+
+curl -su api:api -H "content-type: text/xml" https://pro.jamf.training:8443/08/JSSResource/computers/id/44 -X PUT -d "<computer><general><site><id>3</id></site></general></computer>"
+
+
+# move mobile to new site
+
+curl -su api:api -H "content-type: text/xml" https://pro.jamf.training:8443/08/JSSResource/mobiledevices/id/44 -X PUT -d "<mobile_device><general><site><name>Production</name></site></general></mobile_device>"
