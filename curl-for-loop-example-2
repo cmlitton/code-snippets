@@ -1,0 +1,22 @@
+#!/bin/bash
+
+## while files does not exist
+#while [[ ! -f /tmp/stop ]];do
+#echo "The file is not there." 
+#sleep 3
+#done
+#
+## once the file exist, then do this
+#echo "The file is there"
+
+IFS=,
+
+while read roomNumber assetTag serialNumber; do
+	echo "Room is $roomNumber"
+	echo "Assest Tag is $assetTag"
+	echo "Serial is $serialNumber"
+
+
+done < /Users/Shared/Resources/Docs/deviceAssignment.csv
+
+curl -su jamfadmin:jamf1234 -H "conent-type: text/xml" https://pro.jamf.training:8443/08/JSSResource/mobiledevices/serialnumber/$serialNumber -X PUT -d "<mobile_device><general><asset_tag>$assetTag</asset_tag></general><location><room>$roomNumber</room></location></mobile_device>"
