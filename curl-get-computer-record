@@ -1,0 +1,3 @@
+#!/bin/bash
+
+curl -su api:api -H "accept: text/xml" https://JSSURL:8443/08/JSSResource/computers/id/3000 -X GET | xmllint --format - >> ~/Desktop/myComputerRecord.xml
