@@ -1,0 +1,6 @@
+#!/bin/bash
+
+
+assetTag=$(osascript -e 'text returned of(display dialog "What is the deal" default answer "" buttons {"OK"} default button 1)')
+
+sudo jamf
