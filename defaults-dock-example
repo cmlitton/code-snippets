@@ -1,0 +1,12 @@
+#!/bin/bash
+
+dockOrientation=$(defaults read com.apple.dock.plist orientation)
+
+if [[ "dockOrientation" == "right" ]]; then
+	echo "all is good"
+	else
+		defaults write com.apple.dock.plist orientation -string left
+		sleep 2
+		killall cfprefsd
+		killall Dock
+done
