@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# get category ID 3
+#curl -ksu api:api \
+#-H "accept: text/xml" \
+#https://pro.jamf.training:8443/08/JSSResource/categories/id/3 \
+#-X GET | \
+#xmllint --format - >> ~/Desktop/categoriesID3formatted3.xml
+
+# get all info on computer ID 3000
+#curl -su api:api -H "accept: text/xml" https://pro.jamf.training:8443/08/JSSResource/computers/id/3000 -X GET | xmllint --format -
+
+# get serial number on computer ID 3000
+#curl -su api:api -H "accept: text/xml" https://pro.jamf.training:8443/08/JSSResource/computers/serialnumber/C02KX28HF5YV -X GET | xmllint --format -
+
+# get ID of computer w/o tags - add text()
+curl -su
