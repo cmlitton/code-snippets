@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# -m : maxtime to complete
+# -ks : insecure and silent
+
+serverStatus=$(curl -m 10 -ks https://JSSURL:8443/healthCheck.html)
+
+if [[ "$serverStatus" == "[]" ]]; then
+	echo "Nothing to report"
+	else
+	echo "Ohh boy!"
+fi
+
+exit 0
+
