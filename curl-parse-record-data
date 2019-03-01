@@ -1,0 +1,14 @@
+#!/bin/bash
+
+curl -sku user:pass \
+-H "accept:text/xml" \
+https://JSSURL:8443/JSSResource/computers/serialnumber/C02L10E8F5YW > ~/Desktop/curlTest3
+
+id=$(xmllint --xpath '/computer/general/id/text()' ~/Desktop/curlTest3)
+
+macaddress=$(xmllint --xpath '/computer/general/mac_address/text()' ~/Desktop/curlTest3)
+
+build=$(xmllint -xpath '/computer/hardware/os_build/text()' ~/Desktop/curlTest3)
+
+echo "$id,$macaddress,$build" > ~/Desktop/curlTest4
+
