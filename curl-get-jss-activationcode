@@ -1,0 +1,9 @@
+#!/bin/bash
+
+
+curl -su api:api \
+-H "accept: text/xml" \
+https://JSSURL:8443/08/JSSResource/activationcode \
+-X GET | \
+xmllint --xpath '/activation_code/code/text()' -
+
