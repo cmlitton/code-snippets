@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# get all sites in the JSS and print to a file
+curl -sku api:api -H "accept: text/xml" https://pro.jamf.training:8443/08/JSSResource/sites -o ~/Desktop/sites.xml
+
+# make a new sites
+curl -su ap
