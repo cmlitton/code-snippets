@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# get all catergories and print to file
+curl -sku api:api -H "accept: text/xml" https://pro.jamf.training:8443/08/JSSResource/categories | xmllint --format - > ~/Desktop/catergories.xml
+
+# make a new category
+curl -su api:api -H "content-type: text/xml" https://pro.jamf.training:8443/08/JSSResource/categories/id/0 -X POST -d "<category><name>Getting Started</name><priority>1</priority></category>"
+
+
+
+
+
+# double check that the id is there
+#curl -su api:api -H "accept: text/xml" https://pro.jamf.training:8443/08/JSSResource/categories/id/5
