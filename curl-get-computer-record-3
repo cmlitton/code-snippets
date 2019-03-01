@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# make a new category 
+#curl -su api:api -H "content-type: text/xml" https://pro.jamf.training:8443/08/JSSResource/categories/id/0 -X POST -d "<category><name>Updates</name><priority>1</priority></category>"
+
+
+# move computer to testing site
+# curl -su api:api -H "content-type: text/xml" https://pro.jamf.training:8443/08/JSSResource/computers/id/3000 -X PUT -d "<computer><general><site><name>Production</name></site></general></computer>"
+
+
+# move mobile device to production site
+# curl -su api:api -H "content-type: text/xml" https://pro.jamf.training:8443/08/JSSResource/mobiledevices/id/44 -X PUT -d "<mobile_device><general><site><name>Production</name></site></general></mobile_device>"
+
+
+# send update inventory command
+# curl -su api:api https://pro.jamf.training:8443/08/JSSResource/mobiledevicecommands/command/UpdateInventory/id/3000 -X POST
+
+
+# get UDID of computer with OD of 3000
+curl -su api:api -H "accept: text/xml" https://pro.jamf.training:8443/08/JSSResource/computers/id/3000 -X GET | \
+xmllint --xpath '/computer/general/udid/text()' -
+
