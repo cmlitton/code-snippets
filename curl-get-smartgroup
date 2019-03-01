@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# get smart group info by id
+curl -ksu api:api -H "accept: text/xml" https://pro.jamf.training:8443/08/JSSResource/computergroups/id/44 -X GET | xmllint --format - 
+
+# then try > ~/Desktop/file to output pretty
