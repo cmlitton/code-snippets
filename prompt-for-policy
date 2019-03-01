@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# prompt user for a policy ID
+policyID=$(osascript -e 'text returned of(display dialog "Please type in a policy ID" default answer "" buttons {"OK"} default button 1)')
+
+
+# execute the policy
+policyOutput=$(sudo jamf policy -id $policyID)
+
+# output of policy to /Users/Shared
+echo $policyOutput >> ~/Desktop/policyID.txt
+
+
+#sudo jamf policy -id $policyID >> 
