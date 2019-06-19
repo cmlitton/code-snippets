@@ -1,0 +1,11 @@
+#Download
+aText curl 'https://www.trankynam.com/atext/downloads/aText.dmg' -o /tmp/aText.dmg 
+
+#Mount the aText disk image
+hdiutil attach /tmp/aText.dmg 
+
+#Copy aText to the Applications folder 
+cp -r /Volumes/aText/aText.app /Applications/ 
+
+#Unmount and delete the disk image 
+hdiutil detach /Volumes/aText/ rm /tmp/aText.dmg
