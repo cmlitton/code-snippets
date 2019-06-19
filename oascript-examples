@@ -1,0 +1,24 @@
+#Open or switch to Safari:
+$ osascript -e 'tell app "Safari" to activate'
+
+#Close safari: 
+$ osascript -e 'quit app "safari.app"'
+
+#Empty the trash:
+$ osascript -e 'tell application "Finder" to empty trash'
+
+#Set the output volume to 50%
+$ sudo osascript -e 'set volume output volume 50'
+
+#Input volume and Alert volume can also be set from 0 to 100%: 
+$ sudo osascript -e 'set volume input volume 40'
+$ sudo osascript -e 'set volume alert volume 75'
+
+#Mute the output volume (True/False):
+$ osascript -e 'set volume output muted TRUE'
+
+#Shut down without asking for confirmation:
+$ osascript -e 'tell app "System Events" to shut down'
+
+#Restart without asking for confirmation:
+$ osascript -e 'tell app "System Events" to restart'
