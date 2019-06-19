@@ -1,0 +1,32 @@
+# EXAMPLE 1
+# First, I define the path to my log file. In this case, it's going into my home folder's Logs directory 
+# and I'm naming it "apiscript.log". Then, I have a function called logresult. It takes the exit status 
+# of a command, which is represented by "$?" and tests whether that exist status was successful ( 0 ) or 
+# something else ( not 0 ). I use this one function over and over across my scripts. If the exit status of a command 
+# is successful, the function writes the current time and my "Success" message to the log. 
+# If the exit status is anything other than 0, it writes the current time and my "Fail" message to the log.
+
+logFile="$HOME/Library/Logs/apiscript.log"
+
+function logresult()	{
+	if [ $? = 0 ] ; then
+	  /bin/date "+%Y-%m-%d %H:%M:%S	$1" >> "$logFile"
+	else
+	  /bin/date "+%Y-%m-%d %H:%M:%S	$2" >> "$logFile"
+	fi
+}
+...
+
+[[ $resultStatus = 200 ]]
+logresult "Success." "Fail."
+
+
+# EXAMPLE 2
+# Place this code snippet at the start of your script. It will do all the -x stuff we mentioned 
+# but redirect all output to a log file in /tmp. This means you can trigger the policy and 
+# get a complete read on what it’s doing
+
+time=$( date "+%d%m%y-%H%M" )
+set -x
+logfile=/tmp/scripttest-"$time".log
+exec > $logfile 2>&1
