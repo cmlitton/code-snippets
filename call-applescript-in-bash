@@ -1,0 +1,1 @@
+script_output=$(osascript -e 'script stuff here')
