@@ -1,0 +1,45 @@
+# from @matt_h
+
+function waitForUser {
+    ## Get current user and UID
+    loggedInUser=$(scutil <<< "show State:/Users/ConsoleUser" | awk -F': ' '/[[:space:]]+Name[[:space:]]:/ { if ( $2 != "loginwindow" ) { print $2 }}      ')
+    logAction "Checking to make sure system is ready for provisioning. Current user is $loggedInUser"
+    currentUID=$(dscl . -list /Users UniqueID | grep $loggedInUser | awk '{print $2;}')
+    logAction "$loggedInUser UID is $currentUID"
+    
+    ## Wait until desired user is logged in
+    while [[ $currentUID -ne 502 ]] && [[ $currentUID -ne 501 ]] && [[ $(echo $loggedInUser | cut -c 1-2) != "n0" ]] && [[ $(echo $loggedInUser | cut -c 1-2) != "N0" ]]; do
+        logAction "Currently logged in user is NOT the 501, 502, or an n account user. Waiting."
+        sleep 2
+        loggedInUser=$(scutil <<< "show State:/Users/ConsoleUser" | awk -F': ' '/[[:space:]]+Name[[:space:]]:/ { if ( $2 != "loginwindow" ) { print $2 }}      ')
+        currentUID=$(dscl . -list /Users UniqueID | grep $loggedInUser | awk '{print $2;}')
+        logAction "Current user is $loggedInUser with UID $currentUID"
+    done
+
+    ## Wait for the desktop to be available before continuing
+    dockStatus=$(pgrep -x Dock)
+    logAction "Desired user is logged in. Waiting for Desktop..."
+    while [[ "$dockStatus" == "" ]]; do
+        logAction "Desktop is not loaded. Waiting."
+        sleep 2
+        dockStatus=$(pgrep -x Dock)
+    done
+
+    ## All good!
+    logAction "Desired user logged in and system is ready. Continuing with provisioning..."
+}
+
+
+# also try from @dengh
+
+#Wait for user session
+userSession="No"
+
+while [[ "$userSession" == "No" ]]; do
+	dockYes=$( pgrep Dock )
+	if [[ "$dockYes" != "" ]]; then
+		userSession="Yes"
+	else
+		sleep 1
+	fi
+done
