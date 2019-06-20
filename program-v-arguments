@@ -1,0 +1,17 @@
+# from @mario
+
+Program:
+<key>Program</key>
+<string>/path/to/program</string>
+
+ProgramArguments:
+<key>ProgramArguments</key>
+<array>
+    <string>/usr/bin/rsync</string>
+    <string>--archive</string>
+    <string>--compress-level=9</string>
+    <string>/Volumes/Macintosh HD</string>
+    <string>/Volumes/Backup</string>
+</array>
+
+Note: The first string in the list is not the first argument but the path to the executable you want to run.
