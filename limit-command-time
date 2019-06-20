@@ -1,0 +1,6 @@
+# from @scriptingosx
+
+long_running_command &
+pid=$!
+sleep 60
+kill $pid
